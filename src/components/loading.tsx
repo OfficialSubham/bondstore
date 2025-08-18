@@ -1,7 +1,7 @@
 const Loading = ({ loading }: { loading: boolean }) => {
   return (
     loading && (
-      <div className="w-screen h-screen relative z-100">
+      <div className="w-screen h-screen bg-white fixed z-100">
         <div
           style={{
             position: "absolute",
