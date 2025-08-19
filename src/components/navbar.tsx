@@ -48,7 +48,7 @@ const Navbar = () => {
             className="bg-black h-0.5 w-5"
           ></div>
         </div>
-        <div className="h-10 w-10">
+        <div className="h-10 w-10" onClick={() => navigate("/")}>
           <img src="/logo1.svg" className="w-full h-full" />
         </div>
         <div className="flex gap-2" onClick={() => navigate("/cart")}>
