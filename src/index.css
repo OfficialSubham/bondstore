@@ -7,10 +7,16 @@
   src: url("/Fonts/morganite/Morganite-Black.otf");
 }
 
+@font-face {
+  font-family: Toreadore;
+  src: url("/Fonts/Toreadore.otf");
+}
+
 body {
   font-family: Vollkorn;
 }
 
 @theme {
   --font-morganite: Morganite;
+  --font-toreadore: Toreadore;
 }

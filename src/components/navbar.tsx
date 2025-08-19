@@ -1,8 +1,10 @@
 import { ShoppingBag } from "lucide-react";
 import { useState } from "react";
 import Menu from "./menu";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
   return (
     <div className="w-full fixed z-20 bg-white h-14 border-b border-b-line/20">
@@ -49,7 +51,7 @@ const Navbar = () => {
         <div className="h-10 w-10">
           <img src="/logo1.svg" className="w-full h-full" />
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2" onClick={() => navigate("/cart")}>
           <div className="bg-black text-white font-morganite tracking-[2px] text-xl text-center w-8 rounded-sm flex items-center justify-center">
             99
           </div>

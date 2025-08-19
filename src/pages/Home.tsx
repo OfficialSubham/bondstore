@@ -6,45 +6,45 @@ const Home = () => {
   const category = [
     {
       categoryName: "Men's Wallet",
-      categoryType: "#",
+      categoryType: "menswallet",
     },
     {
       categoryName: "Leather Bags",
-      categoryType: "#",
+      categoryType: "leatherbags",
     },
     {
       categoryName: "Imported Bags",
-      categoryType: "#",
+      categoryType: "importedbags",
     },
     {
       categoryName: "Hand Clutch",
-      categoryType: "#",
+      categoryType: "handclutch",
     },
     {
       categoryName: "Men's Side Bag",
-      categoryType: "#",
+      categoryType: "mensidebags",
+    },
+    {
+      categoryName: "Explore Bags",
+      categoryType: "explorebags",
+      exploreType: "Explore All",
     },
   ];
 
   return (
-    <>
-      <div className="mx-auto md:max-w-3xl fixed inset-0 h-full w-full">
-        <div className="absolute inset-y-0 top-14 left-2 lg:left-0 w-px bg-black "></div>
-        <div className="absolute top-14 lg:right-0 inset-y-0 right-2 w-px bg-black"></div>
-      </div>
-
-      <Container>
-        <HeroSection />
-        {category.map((cat) => {
-          return (
-            <Category
-              categoryName={cat.categoryName}
-              categoryType={cat.categoryType}
-            />
-          );
-        })}
-      </Container>
-    </>
+    <Container>
+      <HeroSection />
+      {category.map((cat) => {
+        return (
+          <Category
+            key={cat.categoryName}
+            categoryName={cat.categoryName}
+            categoryType={cat.categoryType}
+            exploreType={cat.exploreType}
+          />
+        );
+      })}
+    </Container>
   );
 };
 

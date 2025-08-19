@@ -4,7 +4,7 @@ const HeroSection = () => {
       <h1 className="font-bold font-morganite text-7xl tracking-wide ">
         Not Just Bags, It's a Lifestyle
       </h1>
-      <p className="text-sm tracking-wide">
+      <p className="text-sm text-neutral-600 tracking-wide font-toreadore">
         Upgrade your everyday look with bold, trendy, and functional bags
         designed for the new generation — versatile enough for college, travel,
         and daily life while keeping you effortlessly stylish and confident.

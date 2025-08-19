@@ -5,14 +5,20 @@ import Loading from "./components/loading";
 
 function App() {
   return (
-    <div className="relative w-full min-h-scren">
+    <div className="relative flex flex-col w-full min-h-screen">
+      <div className="mx-auto md:max-w-3xl fixed inset-0 h-full w-full pointer-events-none">
+        <div className="absolute inset-y-0 top-14 left-2 lg:left-0 w-px bg-black "></div>
+        <div className="absolute top-14 lg:right-0 inset-y-0 right-2 w-px bg-black"></div>
+      </div>
       <Router>
         <Navbar />
         <Loading loading={false} />
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
-        <footer className="w-full h-40 bg-black mt-4">
+        <div className="flex-1">
+          <Routes>
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </div>
+        <footer className="w-full h-40 mt-4 bg-black">
           <div className="text-center max-w-3xl text-white mx-auto h-full">
             Hello world
           </div>

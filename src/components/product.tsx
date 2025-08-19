@@ -8,7 +8,7 @@ const Product = () => {
           className="h-full w-full object-cover rounded-md"
         />
       </div>
-      <button className="bg-black text-white rounded-md hover:bg-transparent hover:border border-black hover:text-black transition-all duration-300 px-5 py-2 font-morganite text-xl tracking-widest ">
+      <button className="bg-black text-white rounded-md hover:bg-transparent hover:border border-black hover:text-black transition-all duration-300 px-5 py-2 font-toreadore">
         Add to cart
       </button>
     </div>

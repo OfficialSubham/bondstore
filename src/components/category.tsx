@@ -4,9 +4,11 @@ import Product from "./product";
 const Category = ({
   categoryName,
   categoryType,
+  exploreType,
 }: {
   categoryName: string;
   categoryType: string;
+  exploreType?: string;
 }) => {
   const navigate = useNavigate();
   const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -15,12 +17,12 @@ const Category = ({
       <div className="w-full flex justify-between">
         <h1 className="font-bold text-[32px]">{categoryName}</h1>
         <button
-          className="bg-black text-white rounded-md hover:bg-transparent border border-black hover:text-black transition-all duration-300 px-5 py-2 "
+          className="bg-black text-white rounded-md hover:bg-transparent border border-black hover:text-black transition-all duration-300 px-5 py-2 font-toreadore"
           onClick={() => {
             navigate(`/${categoryType}`);
           }}
         >
-          View all
+          {exploreType ? exploreType : "View all"}
         </button>
       </div>
       <div className="flex-1 snap-x flex gap-4 overflow-x-scroll bg-slate-300/18 w-full items-center">
@@ -29,12 +31,12 @@ const Category = ({
         })}
         {arr.length > 4 && (
           <button
-            className="bg-black border text-white rounded-md hover:bg-transparent shrink-0 border-black hover:text-black transition-all duration-300 px-5 py-2 "
+            className="bg-black border text-white rounded-md hover:bg-transparent shrink-0 border-black hover:text-black transition-all duration-300 font-toreadore px-5 py-2 "
             onClick={() => {
               navigate(`/${categoryType}`);
             }}
           >
-            View all
+            {exploreType ? exploreType : "View all"}
           </button>
         )}
       </div>
