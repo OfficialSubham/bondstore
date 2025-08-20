@@ -5,6 +5,7 @@ import Loading from "./components/loading";
 import Cart from "./pages/Cart";
 import Container from "./components/container";
 import AllTypeOfProducts from "./pages/AllTypeOfProducts";
+import EachProduct from "./pages/EachProduct";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
                 path="/products/:category"
                 element={<AllTypeOfProducts />}
               />
+              <Route path="/product/:id" element={<EachProduct />} />
             </Routes>
           </Container>
         </div>
