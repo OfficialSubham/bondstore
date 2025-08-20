@@ -20,3 +20,19 @@ body {
   --font-morganite: Morganite;
   --font-toreadore: Toreadore;
 }
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for Firefox */
+  .scrollbar-hidden {
+    scrollbar-width: none;
+  }
+
+  /* Hide scrollbar for IE and Edge */
+  .scrollbar-hidden {
+    -ms-overflow-style: none;
+  }
+}
