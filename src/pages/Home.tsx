@@ -1,6 +1,5 @@
 import HeroSection from "../components/heroSection";
 import Category from "../components/category";
-import Container from "../components/container";
 import ReviewSection from "../components/reviewSection";
 
 const Home = () => {
@@ -33,7 +32,7 @@ const Home = () => {
   ];
 
   return (
-    <Container>
+    <>
       <HeroSection />
       {category.map((cat) => {
         return (
@@ -46,7 +45,7 @@ const Home = () => {
         );
       })}
       <ReviewSection items={[1, 2, 3, 4, 5, 6, 7, 8]} />
-    </Container>
+    </>
   );
 };
 

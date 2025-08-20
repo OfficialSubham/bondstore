@@ -2,6 +2,8 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Navbar from "./components/navbar";
 import Home from "./pages/Home";
 import Loading from "./components/loading";
+import Cart from "./pages/Cart";
+import Container from "./components/container";
 
 function App() {
   return (
@@ -13,10 +15,13 @@ function App() {
       <Router>
         <Navbar />
         <Loading loading={false} />
-        <div className="flex-1">
-          <Routes>
-            <Route path="/" element={<Home />} />
-          </Routes>
+        <div className="flex-1 pt-14">
+          <Container>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/cart" element={<Cart />} />
+            </Routes>
+          </Container>
         </div>
         <footer className="w-full h-40 mt-4 bg-black">
           <div className="text-center max-w-3xl text-white mx-auto h-full">
