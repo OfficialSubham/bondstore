@@ -19,7 +19,7 @@ const Category = ({
         <button
           className="bg-black text-white rounded-md hover:bg-transparent border border-black hover:text-black transition-all duration-300 px-5 py-2 font-toreadore"
           onClick={() => {
-            navigate(`/${categoryType}`);
+            navigate(`/products/${categoryType}`);
           }}
         >
           {exploreType ? exploreType : "View all"}
@@ -33,7 +33,7 @@ const Category = ({
           <button
             className="bg-black border text-white rounded-md hover:bg-transparent shrink-0 border-black hover:text-black transition-all duration-300 font-toreadore px-5 py-2 "
             onClick={() => {
-              navigate(`/${categoryType}`);
+              navigate(`/products/${categoryType}`);
             }}
           >
             {exploreType ? exploreType : "View all"}

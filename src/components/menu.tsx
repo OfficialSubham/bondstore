@@ -4,31 +4,35 @@ const Menu = ({ menuOpen }: { menuOpen: boolean }) => {
   const links = [
     {
       title: "Home",
-      link: "",
+      link: "/",
     },
     {
       title: "Men's Wallet",
-      link: "menswallet",
+      link: "/products/menswallet",
     },
     {
       title: "Leather Bags",
-      link: "leatherbags",
+      link: "/products/leatherbags",
     },
     {
       title: "Imported Bags",
-      link: "importedbags",
+      link: "/products/importedbags",
     },
     {
       title: "Hand Clutch",
-      link: "handclutch",
+      link: "/products/handclutch",
     },
     {
       title: "Men's Side Bag",
-      link: "mensidebags",
+      link: "/products/mensidebags",
     },
     {
       title: "Explore Bags",
-      link: "explorebags",
+      link: "/products/explorebags",
+    },
+    {
+      title: "Submit a Review",
+      link: "submitReview",
     },
   ];
   const location = useLocation();
@@ -82,7 +86,7 @@ const Menu = ({ menuOpen }: { menuOpen: boolean }) => {
               translateX: 4,
             }}
             className="h-10 flex items-center text-xl font-toreadore justify-between px-5"
-            onClick={() => navigate(`/${link.link}`)}
+            onClick={() => navigate(`${link.link}`)}
           >
             <h1 className="hover:underline">{link.title}</h1>
             {location.pathname == `/${link.link}` && (

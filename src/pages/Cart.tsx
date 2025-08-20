@@ -5,8 +5,8 @@ const Cart = () => {
   return (
     <>
       <div className="flex-1">
-        {arr.map(() => {
-          return <CartProduct />;
+        {arr.map((_, idx) => {
+          return <CartProduct key={idx} />;
         })}
       </div>
 
