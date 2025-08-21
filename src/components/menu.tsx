@@ -1,6 +1,12 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { motion } from "motion/react";
-const Menu = ({ menuOpen }: { menuOpen: boolean }) => {
+const Menu = ({
+  menuOpen,
+  setMenuOpen,
+}: {
+  menuOpen: boolean;
+  setMenuOpen: (st: boolean) => void;
+}) => {
   const links = [
     {
       title: "Home",
@@ -85,8 +91,11 @@ const Menu = ({ menuOpen }: { menuOpen: boolean }) => {
               scale: 1.1,
               translateX: 4,
             }}
-            className="h-10 flex items-center text-xl font-toreadore justify-between px-5"
-            onClick={() => navigate(`${link.link}`)}
+            className="h-10 flex items-center cursor-pointer text-xl font-toreadore justify-between px-5"
+            onClick={() => {
+              setMenuOpen(false);
+              navigate(`${link.link}`);
+            }}
           >
             <h1 className="hover:underline">{link.title}</h1>
             {location.pathname == `/${link.link}` && (

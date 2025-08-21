@@ -1,0 +1,27 @@
+import Reviews from "../components/reviews";
+
+const AllReviews = () => {
+  const reviews = new Array(9).fill(9);
+  return (
+    <>
+      <div className="grid gap-2 mx-auto grid-cols-2 md:grid-cols-3">
+        {reviews.map((_, idx) => {
+          return <Reviews key={idx} />;
+        })}
+      </div>
+      <div className="text-center mx-auto flex flex-col gap-2">
+        For more reviews visit instagram
+        <button className="bg-black text-white rounded-md hover:bg-transparent hover:border border-black hover:text-black transition-all duration-300 px-5 py-2 font-toreadore">
+          <a
+            href="https://www.instagram.com/bondstore_official"
+            target="_blank"
+          >
+            Visit
+          </a>
+        </button>
+      </div>
+    </>
+  );
+};
+
+export default AllReviews;

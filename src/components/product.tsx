@@ -17,7 +17,7 @@ const Product = () => {
 
 export const FilterProduct = () => {
   return (
-    <div className="h-full snap-center sm:w-40 md:w-60 mx-auto shrink-0 flex justify-center flex-col gap-2">
+    <div className="h-full snap-center sm:w-40 md:w-58 mx-auto shrink-0 flex justify-center flex-col gap-2">
       <div className="h-40 flex-1 rounded-md w-full">
         <img
           src="/tempImages/imag.jpeg"

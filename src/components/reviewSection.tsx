@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import Reviews from "./reviews";
 
 export default function ReviewSection({ items }: { items: number[] }) {
   const navigate = useNavigate();
@@ -9,11 +10,7 @@ export default function ReviewSection({ items }: { items: number[] }) {
       </div>
       <div className="flex-1 w-full flex gap-6 items-center px-2 overflow-x-scroll scroll-smooth scrollbar-hidden">
         {items.map((_, i) => (
-          <div
-            key={i}
-            data-index={i}
-            className={`carousel-item h-[80%] w-60 snap-center flex-shrink-0 transition-transform duration-300 rounded-xl shadow-[0_2px_12px_rgba(0,0,0,0.4),0_-2px_10px_rgba(0,0,0,0.3)]`}
-          />
+          <Reviews key={i} />
         ))}
       </div>
       <button

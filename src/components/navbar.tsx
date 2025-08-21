@@ -8,7 +8,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
     <div className="w-full fixed z-20 bg-white h-14 border-b border-b-line/20">
-      <Menu menuOpen={menuOpen} />
+      <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
 
       <div className="absolute h-px w-full bg-line/20"></div>
       <div className="h-full flex items-center justify-between w-full max-w-3xl mx-auto px-2">
