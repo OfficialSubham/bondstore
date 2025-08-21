@@ -7,6 +7,7 @@ import Container from "./components/container";
 import AllTypeOfProducts from "./pages/AllTypeOfProducts";
 import EachProduct from "./pages/EachProduct";
 import AllReviews from "./pages/AllReviews";
+import SubmitAReview from "./pages/SubmitAReview";
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
       <Router>
         <Navbar />
         <Loading loading={false} />
-        <div className="flex-1 pt-14">
+        <div className="flex-1 h-full pt-14">
           <Container>
             <Routes>
               <Route path="/" element={<Home />} />
@@ -29,6 +30,7 @@ function App() {
               />
               <Route path="/product/:id" element={<EachProduct />} />
               <Route path="/reviews" element={<AllReviews />} />
+              <Route path="/submitreview" element={<SubmitAReview />} />
             </Routes>
           </Container>
         </div>

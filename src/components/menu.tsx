@@ -38,7 +38,7 @@ const Menu = ({
     },
     {
       title: "Submit a Review",
-      link: "submitReview",
+      link: "submitreview",
     },
   ];
   const location = useLocation();
