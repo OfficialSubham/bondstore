@@ -11,6 +11,13 @@ const EachProduct = () => {
         Category :{" "}
         <span className="px-3 bg-slate-300/18 py-1 rounded-md">Mens Bag</span>
       </div>
+      <div className="whitespace-pre-line">
+        Description : <br />
+        This is a very long product description Lorem ipsum dolor sit amet
+        consectetur adipisicing elit. Animi odit doloribus in ex odio est
+        nesciunt dicta, eligendi saepe id. Ea sed tenetur aliquid id quod cum
+        aspernatur accusantium laboriosam?
+      </div>
       <div>
         Price :{" "}
         <span className="px-3 bg-slate-300/18 py-1 rounded-md">Rs. 1000</span>
