@@ -2,7 +2,7 @@ import type {
   ProductCategory,
   ProductInter,
 } from "@codersubham/bond-store-types";
-import { selector } from "recoil";
+import { selector, selectorFamily } from "recoil";
 
 export const mockProducts: ProductInter[] = [
   {
@@ -445,4 +445,19 @@ export const bulkProduct = selector<ProductInter[] | null>({
   get: () => {
     return mockProducts;
   },
+});
+
+export const categoryProductSelector = selectorFamily({
+  key: "categoryProducts",
+  get:
+    ({ category }: { category: string }) =>
+    ({ get }) => {
+      const products = get(bulkProduct);
+      if (!products) return [];
+      const filtered =
+        category == "explorebags"
+          ? products
+          : products.filter((p) => p.productCategory == category);
+      return [...filtered].sort((a, b) => a.productPrice - b.productPrice);
+    },
 });

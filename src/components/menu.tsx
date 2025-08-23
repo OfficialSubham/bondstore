@@ -30,7 +30,7 @@ const Menu = ({
     },
     {
       title: "Men's Side Bag",
-      link: "/products/mensidebags",
+      link: "/products/mensidebag",
     },
     {
       title: "Explore Bags",

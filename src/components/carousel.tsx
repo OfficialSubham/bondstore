@@ -10,11 +10,11 @@ export default function Carousel({ slides }: { slides: Images[] }) {
 
   const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
-  }, []);
+  }, [slides.length]);
 
   const prevSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  }, []);
+  }, [slides.length]);
 
   const goToSlide = useCallback((index: number) => {
     setCurrentSlide(index);

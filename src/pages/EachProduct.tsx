@@ -17,7 +17,7 @@ const EachProduct = () => {
       if (pro.productId == productId) return pro;
     });
     setCurrentProduct(product);
-  }, []);
+  }, [id, productValue]);
   return (
     currentProduct && (
       <div className="flex flex-col gap-8 font-toreadore w-full">
