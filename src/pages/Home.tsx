@@ -22,7 +22,7 @@ const Home = () => {
     },
     {
       categoryName: "Men's Side Bag",
-      categoryType: "mensidebags",
+      categoryType: "mensidebag",
     },
     {
       categoryName: "Explore Bags",
