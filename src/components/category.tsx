@@ -36,7 +36,6 @@ const Category = ({
                 .filter((pro) => pro.productCategory == categoryType)
                 .slice(0, 4)
                 .map((product) => {
-                  console.log(product);
                   return (
                     <Product
                       key={product.productId}

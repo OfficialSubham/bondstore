@@ -1,68 +1,7 @@
+import type { Images } from "@codersubham/bond-store-types";
 import React, { useState, useEffect, useRef, useCallback } from "react";
 
-interface Slide {
-  id: number;
-  title: string;
-  subtitle: string;
-  description: string;
-  image: string;
-  buttonText: string;
-}
-
-const slides: Slide[] = [
-  {
-    id: 1,
-    title: "Discover Amazing Places",
-    subtitle: "Adventure Awaits",
-    description:
-      "Explore breathtaking destinations and create unforgettable memories with our curated travel experiences.",
-    image:
-      "https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    buttonText: "Start Your Journey",
-  },
-  {
-    id: 2,
-    title: "Modern Technology Solutions",
-    subtitle: "Innovation at Its Best",
-    description:
-      "Transform your business with cutting-edge technology solutions designed for the digital age.",
-    image:
-      "https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    buttonText: "Learn More",
-  },
-  {
-    id: 3,
-    title: "Culinary Excellence",
-    subtitle: "Taste the Difference",
-    description:
-      "Experience extraordinary flavors crafted by world-class chefs using the finest ingredients.",
-    image:
-      "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    buttonText: "View Menu",
-  },
-  {
-    id: 4,
-    title: "Wellness & Relaxation",
-    subtitle: "Find Your Balance",
-    description:
-      "Rejuvenate your mind, body, and soul with our comprehensive wellness programs and spa services.",
-    image:
-      "https://images.pexels.com/photos/3822622/pexels-photo-3822622.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    buttonText: "Book Now",
-  },
-  {
-    id: 5,
-    title: "Creative Workspace",
-    subtitle: "Where Ideas Come to Life",
-    description:
-      "Join a vibrant community of creators and innovators in our state-of-the-art collaborative spaces.",
-    image:
-      "https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    buttonText: "Get Started",
-  },
-];
-
-export default function Carousel() {
+export default function Carousel({ slides }: { slides: Images[] }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [touchStartX, setTouchStartX] = useState(0);
@@ -145,33 +84,15 @@ export default function Carousel() {
         >
           {slides.map((slide) => (
             <div
-              key={slide.id}
+              key={slide.imgId}
               className="relative w-full h-full flex-shrink-0"
             >
               <img
-                src={slide.image}
-                alt={slide.title}
+                src={slide.imgUrl}
+                alt="product image"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent" />
-
-              {/* Slide content */}
-              <div className="absolute inset-0 flex items-center justify-start pl-8 md:pl-16">
-                <div className="text-white max-w-2xl space-y-4 animate-fade-in">
-                  <div className="inline-block px-3 py-1 bg-white/20 rounded-full text-sm font-medium backdrop-blur-sm">
-                    {slide.subtitle}
-                  </div>
-                  <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-                    {slide.title}
-                  </h1>
-                  <p className="text-lg md:text-xl text-gray-200 max-w-xl">
-                    {slide.description}
-                  </p>
-                  <button className="mt-6 px-8 py-3 bg-white text-black font-semibold rounded-full hover:bg-gray-100 transform hover:scale-105 transition-all duration-200 shadow-lg">
-                    {slide.buttonText}
-                  </button>
-                </div>
-              </div>
             </div>
           ))}
         </div>

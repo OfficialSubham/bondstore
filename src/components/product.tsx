@@ -35,7 +35,12 @@ const Product = ({
         <br />
         Price : {productPrice}
       </div>
-      <button className="bg-black text-white border rounded-md hover:bg-transparent hover:border border-black hover:text-black transition-all duration-300 px-5 py-2 font-toreadore">
+      <button
+        className="bg-black text-white border rounded-md hover:bg-transparent hover:border border-black hover:text-black transition-all duration-300 px-5 py-2 font-toreadore"
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+      >
         Add to cart
       </button>
     </div>
@@ -58,7 +63,12 @@ export const FilterProduct = () => {
           className="h-full w-full object-cover rounded-md"
         />
       </div>
-      <button className="bg-black border text-white rounded-md hover:bg-transparent hover:border border-black hover:text-black transition-all duration-300 px-5 py-2 font-toreadore">
+      <button
+        className="bg-black border text-white rounded-md hover:bg-transparent hover:border border-black hover:text-black transition-all duration-300 px-5 py-2 font-toreadore"
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+      >
         Add to cart
       </button>
     </div>
