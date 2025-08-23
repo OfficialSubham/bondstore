@@ -1,8 +1,8 @@
 const CartProduct = () => {
   return (
-    <div className="h-30 flex text-xs font-toreadore w-full gap-2">
-      <div className="h-full w-30 bg-slate-200"></div>
-      <div className="flex-1 flex flex-col gap-2">
+    <div className="h-30 flex text-xs font-toreadore justify-center w-full gap-2">
+      <div className="h-full w-30 bg-slate-200 rounded-md"></div>
+      <div className="flex-1 max-w-100 flex flex-col gap-2">
         <h1>This is the name of the product</h1>
         <select name="quantity" defaultValue={1} className="max-w-50 w-20">
           <option value="1">1</option>

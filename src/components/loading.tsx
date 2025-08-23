@@ -1,4 +1,8 @@
-const Loading = ({ loading }: { loading: boolean }) => {
+import { useRecoilValue } from "recoil";
+import { loadingState } from "../store/loadingState";
+
+const Loading = () => {
+  const loading = useRecoilValue(loadingState);
   return (
     loading && (
       <div className="w-screen h-screen bg-white fixed z-100">

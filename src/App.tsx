@@ -9,6 +9,7 @@ import EachProduct from "./pages/EachProduct";
 import AllReviews from "./pages/AllReviews";
 import SubmitAReview from "./pages/SubmitAReview";
 import AddedToCart from "./components/addToCart";
+import Checkout from "./pages/Checkout";
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
       </div>
       <Router>
         <Navbar />
-        <Loading loading={false} />
+        <Loading />
         <AddedToCart />
         <div className="flex-1 h-full pt-14">
           <Container>
@@ -33,6 +34,7 @@ function App() {
               <Route path="/product/:id" element={<EachProduct />} />
               <Route path="/reviews" element={<AllReviews />} />
               <Route path="/submitreview" element={<SubmitAReview />} />
+              <Route path="/checkout" element={<Checkout />} />
             </Routes>
           </Container>
         </div>
