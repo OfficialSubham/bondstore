@@ -1,12 +1,21 @@
+import { useRecoilValue } from "recoil";
 import Reviews from "../components/reviews";
+import { reviewState } from "../store/reviewState";
 
 const AllReviews = () => {
-  const reviews = new Array(9).fill(9);
+  const reviews = useRecoilValue(reviewState);
   return (
     <>
       <div className="grid gap-2 mx-auto grid-cols-2 md:grid-cols-3">
-        {reviews.map((_, idx) => {
-          return <Reviews key={idx} />;
+        {reviews.map((review) => {
+          return (
+            <Reviews
+              key={review.reviewId}
+              name={review.name}
+              rating={review.rating}
+              review={review.review}
+            />
+          );
         })}
       </div>
       <div className="text-center mx-auto flex flex-col gap-2">
