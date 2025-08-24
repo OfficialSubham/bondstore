@@ -19,7 +19,8 @@ const AllTypeOfProducts = () => {
                   productId={product.productId}
                   productImages={product.productImages}
                   productName={product.productName}
-                  productPrice={product.productPrice}
+                  productAcutalPrice={product.productAcutalPrice}
+                  productDiscountedPrice={product.productDiscountedPrice}
                 />
               </div>
             );

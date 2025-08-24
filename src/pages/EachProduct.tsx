@@ -35,10 +35,25 @@ const EachProduct = () => {
             ? currentProduct?.productDesc
             : `${currentProduct?.productDesc.slice(0, 250)}...`}
         </div>
+        <div className="flex gap-2 items-center">
+          Sale :{" "}
+          <span className="text-xl line-through text-slate-400">
+            {currentProduct.productAcutalPrice}
+          </span>
+          <span className="px-4 py-2 bg-black font-bold text-white rounded-md tracking-wider">
+            {Math.floor(
+              ((currentProduct.productAcutalPrice -
+                currentProduct.productDiscountedPrice) /
+                currentProduct.productAcutalPrice) *
+                100
+            )}{" "}
+            % off
+          </span>
+        </div>
         <div>
           Price :{" "}
           <span className="px-3 bg-slate-300/18 py-1 rounded-md">
-            Rs. {currentProduct?.productPrice}
+            Rs. {currentProduct?.productDiscountedPrice}/-
           </span>
         </div>
         <div className="mx-auto">

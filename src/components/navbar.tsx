@@ -2,10 +2,13 @@ import { ShoppingBag } from "lucide-react";
 import { useState } from "react";
 import Menu from "./menu";
 import { useNavigate } from "react-router-dom";
+import { useRecoilValue } from "recoil";
+import { totalProduct } from "../store/cart";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
+  const totalProductNum = useRecoilValue(totalProduct);
   return (
     <div className="w-full fixed z-20 bg-white h-14 border-b border-b-line/20">
       <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
@@ -53,7 +56,7 @@ const Navbar = () => {
         </div>
         <div className="flex gap-2" onClick={() => navigate("/cart")}>
           <div className="bg-black text-white font-morganite tracking-[2px] text-xl text-center w-8 rounded-sm flex items-center justify-center">
-            99
+            {totalProductNum > 99 ? "99+" : totalProductNum}
           </div>
           <ShoppingBag />
         </div>

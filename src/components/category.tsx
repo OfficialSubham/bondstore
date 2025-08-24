@@ -17,7 +17,7 @@ const Category = ({
   const products = useRecoilValue(bulkProduct);
 
   return (
-    <div className="w-full h-100 flex tracking-[2px] font-morganite flex-col gap-4">
+    <div className="w-full h-110 flex tracking-[2px] font-morganite flex-col gap-4">
       <div className="w-full flex justify-between">
         <h1 className="font-bold text-[32px]">{categoryName}</h1>
         <button
@@ -30,7 +30,7 @@ const Category = ({
         </button>
       </div>
       {products && (
-        <div className="flex-1 snap-x flex gap-4 overflow-x-scroll bg-slate-300/18 w-full items-center">
+        <div className="flex-1 snap-x py-4 flex gap-4 overflow-x-scroll bg-slate-300/18 w-full items-center">
           {categoryType != "explorebags"
             ? products
                 .filter((pro) => pro.productCategory == categoryType)
@@ -42,7 +42,8 @@ const Category = ({
                       productName={product.productName}
                       productId={product.productId}
                       productImages={product.productImages}
-                      productPrice={product.productPrice}
+                      productAcutalPrice={product.productAcutalPrice}
+                      productDiscountedPrice={product.productDiscountedPrice}
                     />
                   );
                 })
@@ -53,7 +54,8 @@ const Category = ({
                     productName={product.productName}
                     productId={product.productId}
                     productImages={product.productImages}
-                    productPrice={product.productPrice}
+                    productAcutalPrice={product.productAcutalPrice}
+                    productDiscountedPrice={product.productDiscountedPrice}
                   />
                 );
               })}
