@@ -104,7 +104,7 @@ const Product = ({
         <span className="text-xs line-through text-slate-500">
           {productAcutalPrice}
         </span>
-        <span className="font-bold ml-2">{productDiscountedPrice}</span>
+        <span className="font-bold ml-2">₹{productDiscountedPrice}</span>
       </div>
       <button
         className="bg-black text-white border rounded-md hover:bg-transparent hover:border border-black hover:text-black transition-all duration-300 px-5 py-2 font-toreadore"
@@ -207,7 +207,7 @@ export const FilterProduct = ({
         <span className="text-xs line-through text-slate-500">
           {productAcutalPrice}
         </span>
-        <span className="font-bold ml-2">{productDiscountedPrice}</span>
+        <span className="font-bold ml-2">₹{productDiscountedPrice}</span>
       </div>
       <button
         className="bg-black border text-white rounded-md hover:bg-transparent hover:border border-black hover:text-black transition-all duration-300 px-5 py-2 font-toreadore"

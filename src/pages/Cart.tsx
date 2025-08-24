@@ -1,11 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import CartProduct from "../components/cartProduct";
 import { useRecoilValue } from "recoil";
-import { cartState } from "../store/cart";
+import { cartState, totalPrice } from "../store/cart";
 
 const Cart = () => {
   const navigate = useNavigate();
   const cart = useRecoilValue(cartState);
+  const total = useRecoilValue(totalPrice);
   return (
     <div className="relative h-screen flex flex-col">
       <div className="flex-1 w-full flex flex-col gap-4 overflow-y-scroll scrollbar-hidden">
@@ -27,16 +28,16 @@ const Cart = () => {
       <div className="w-full  gap-2 px-2 py-4 rounded-md bg-slate-300/18 font-toreadore mt-5">
         <div className="flex justify-between">
           <h1>Total Price : </h1>
-          <h1>Rs. 1000000</h1>
+          <h1>Rs. {total}</h1>
         </div>
         <div className="flex justify-between">
           <h1>Delivery Charges : </h1>
-          <h1>Rs. 1000000</h1>
+          <h1>Rs. {total == 0 ? 0 : 100}</h1>
         </div>
         <div className="h-px w-full bg-white"></div>
         <div className="flex justify-between">
           <h1>Total Cost : </h1>
-          <h1>Rs. 1000000</h1>
+          <h1>Rs. {total == 0 ? total : total + 100}</h1>
         </div>
         <div className="w-full flex justify-center">
           <button

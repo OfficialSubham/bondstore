@@ -1,5 +1,7 @@
 import type { productPurchased } from "@codersubham/bond-store-types";
 import { useNavigate } from "react-router-dom";
+import { useSetRecoilState } from "recoil";
+import { cartState } from "../store/cart";
 
 const CartProduct = ({
   productName,
@@ -10,17 +12,33 @@ const CartProduct = ({
   quantity,
 }: productPurchased) => {
   const navigate = useNavigate();
+  const setCartState = useSetRecoilState(cartState);
   const handleProductRemove = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
+    setCartState((crt) => crt.filter((cart) => cart.productId != productId));
+  };
+  const handleQuantity = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    e.stopPropagation();
+    setCartState((crt) => {
+      return crt.map((cart) => {
+        if (cart.productId == productId) {
+          return {
+            ...cart,
+            quantity: Number(e.target.value),
+          };
+        }
+        return cart;
+      });
+    });
   };
   return (
-    <div
-      className="h-30 flex text-xs font-toreadore justify-center w-full gap-2"
-      onClick={() => {
-        navigate(`/product/${productId}`);
-      }}
-    >
-      <div className="h-full w-30 bg-slate-200 rounded-md">
+    <div className="h-40 flex text-xs font-toreadore justify-center w-full gap-2">
+      <div
+        className="h-full w-30 bg-slate-200 rounded-md"
+        onClick={() => {
+          navigate(`/product/${productId}`);
+        }}
+      >
         <img
           src={`${productImage.imgUrl}`}
           alt="img"
@@ -37,17 +55,21 @@ const CartProduct = ({
           name="quantity"
           defaultValue={quantity}
           className="max-w-50 w-20"
-          onClick={(e) => {
-            e.stopPropagation();
-          }}
+          onChange={handleQuantity}
         >
           <option value="1">1</option>
-          <option value="1">2</option>
-          <option value="1">3</option>
-          <option value="1">4</option>
-          <option value="1">5</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
         </select>
-        <div className="text-lg">Price: Rs. {productDiscountedPrice}</div>
+        <div className="text-lg">Price: ₹ {productDiscountedPrice}</div>
+        <div className="">
+          Quantity:{" "}
+          <span className="px-2 py-1 rounded-md bg-slate-300/18">
+            {quantity}
+          </span>
+        </div>
         <div className="flex gap-2 items-center">
           Sale :{" "}
           <span className="text-sm line-through text-slate-400">
@@ -66,7 +88,6 @@ const CartProduct = ({
       <button
         className="bg-black text-white rounded-md w-fit my-auto px-2 py-3"
         onClick={handleProductRemove}
-        data-product-remove-id={productId}
       >
         Remove
       </button>

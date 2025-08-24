@@ -109,7 +109,7 @@ const EachProduct = () => {
         <div>
           Price :{" "}
           <span className="px-3 bg-slate-300/18 py-1 rounded-md">
-            Rs. {currentProduct?.productDiscountedPrice}/-
+            ₹ {currentProduct?.productDiscountedPrice}/-
           </span>
         </div>
         <div className="mx-auto">
