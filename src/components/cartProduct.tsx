@@ -1,7 +1,8 @@
 import type { productPurchased } from "@codersubham/bond-store-types";
 import { useNavigate } from "react-router-dom";
-import { useSetRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import { cartState } from "../store/cart";
+import { useEffect } from "react";
 
 const CartProduct = ({
   productName,
@@ -12,7 +13,7 @@ const CartProduct = ({
   quantity,
 }: productPurchased) => {
   const navigate = useNavigate();
-  const setCartState = useSetRecoilState(cartState);
+  const [cart, setCartState] = useRecoilState(cartState);
   const handleProductRemove = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     setCartState((crt) => crt.filter((cart) => cart.productId != productId));
@@ -31,6 +32,10 @@ const CartProduct = ({
       });
     });
   };
+  useEffect(() => {
+    localStorage.setItem("yourCart", JSON.stringify(cart));
+  }, [cart]);
+
   return (
     <div className="h-40 flex text-xs font-toreadore justify-center w-full gap-2">
       <div

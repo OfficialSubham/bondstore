@@ -35,6 +35,7 @@ const Checkout = () => {
     await new Promise((res) => setTimeout(res, 10000));
     setLoading(false);
     alert("Order placed successfully");
+    localStorage.removeItem("yourCart");
     navigate("/");
   };
 

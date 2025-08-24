@@ -2,7 +2,7 @@ import type { ProductInter } from "@codersubham/bond-store-types";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { addedToCartState, cartState } from "../store/cart";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 type ProductSemiDetails = Pick<
   ProductInter,
@@ -71,7 +71,9 @@ const Product = ({
       );
     }
   };
-
+  useEffect(() => {
+    localStorage.setItem("yourCart", JSON.stringify(cart));
+  }, [cart]);
   return (
     <div
       className="h-full snap-center w-50 mx-auto shrink-0 flex justify-center flex-col gap-2"
@@ -174,6 +176,10 @@ export const FilterProduct = ({
       );
     }
   };
+
+  useEffect(() => {
+    localStorage.setItem("yourCart", JSON.stringify(cart));
+  }, [cart]);
 
   return (
     <div

@@ -2,11 +2,17 @@ import { useNavigate } from "react-router-dom";
 import CartProduct from "../components/cartProduct";
 import { useRecoilValue } from "recoil";
 import { cartState, totalPrice } from "../store/cart";
+import { useEffect } from "react";
 
 const Cart = () => {
   const navigate = useNavigate();
   const cart = useRecoilValue(cartState);
   const total = useRecoilValue(totalPrice);
+
+  useEffect(() => {
+    localStorage.setItem("yourCart", JSON.stringify(cart));
+  }, [cart]);
+
   return (
     <div className="relative h-screen flex flex-col">
       <div className="flex-1 w-full flex flex-col gap-4 overflow-y-scroll scrollbar-hidden">

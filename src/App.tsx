@@ -10,8 +10,30 @@ import AllReviews from "./pages/AllReviews";
 import SubmitAReview from "./pages/SubmitAReview";
 import AddedToCart from "./components/addToCart";
 import Checkout from "./pages/Checkout";
+import { useEffect } from "react";
+import { cartState } from "./store/cart";
+import { useSetRecoilState } from "recoil";
+import type { productPurchased } from "@codersubham/bond-store-types";
 
 function App() {
+  const setCartState = useSetRecoilState(cartState);
+  useEffect(() => {
+    const prevCartString = localStorage.getItem("yourCart");
+
+    if (!prevCartString) {
+      setCartState([]);
+    } else {
+      try {
+        const prevCartArray = JSON.parse(prevCartString) as productPurchased[];
+
+        setCartState(prevCartArray);
+      } catch (err) {
+        console.error("Error parsing cart from localStorage:", err);
+        setCartState([]);
+      }
+    }
+  });
+
   return (
     <div className="relative flex flex-col w-full min-h-screen">
       <div className="mx-auto md:max-w-3xl fixed inset-0 h-full w-full pointer-events-none">

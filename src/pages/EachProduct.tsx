@@ -74,6 +74,11 @@ const EachProduct = () => {
     });
     setCurrentProduct(product);
   }, [id, productValue]);
+
+  useEffect(() => {
+    localStorage.setItem("yourCart", JSON.stringify(cart));
+  }, [cart]);
+
   return (
     currentProduct && (
       <div className="flex flex-col gap-8 font-toreadore w-full">

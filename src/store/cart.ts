@@ -3,7 +3,9 @@ import { atom, selector } from "recoil";
 
 export const cartState = atom({
   key: "cartState",
-  default: [] as productPurchased[],
+  default: JSON.parse(
+    localStorage.getItem("yourCart") || "[]"
+  ) as productPurchased[],
 });
 
 export const cartHydratedState = atom({
