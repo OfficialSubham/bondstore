@@ -1,14 +1,26 @@
 import { useNavigate } from "react-router-dom";
 import CartProduct from "../components/cartProduct";
+import { useRecoilValue } from "recoil";
+import { cartState } from "../store/cart";
 
 const Cart = () => {
-  const arr = new Array(10).fill(10);
   const navigate = useNavigate();
+  const cart = useRecoilValue(cartState);
   return (
     <div className="relative h-screen flex flex-col">
       <div className="flex-1 w-full flex flex-col gap-4 overflow-y-scroll scrollbar-hidden">
-        {arr.map((_, idx) => {
-          return <CartProduct key={idx} />;
+        {cart.map((eachItem) => {
+          return (
+            <CartProduct
+              key={eachItem.productId}
+              productAcutalPrice={eachItem.productAcutalPrice}
+              productDiscountedPrice={eachItem.productDiscountedPrice}
+              productId={eachItem.productId}
+              productImage={eachItem.productImage}
+              quantity={eachItem.quantity}
+              productName={eachItem.productName}
+            />
+          );
         })}
       </div>
 

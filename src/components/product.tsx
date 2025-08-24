@@ -1,7 +1,8 @@
 import type { ProductInter } from "@codersubham/bond-store-types";
 import { useNavigate } from "react-router-dom";
-import { useSetRecoilState } from "recoil";
-import { addedToCartState } from "../store/cart";
+import { useRecoilState, useSetRecoilState } from "recoil";
+import { addedToCartState, cartState } from "../store/cart";
+import { useRef } from "react";
 
 type ProductSemiDetails = Pick<
   ProductInter,
@@ -19,10 +20,56 @@ const Product = ({
   productDiscountedPrice,
   productId,
 }: ProductSemiDetails) => {
+  const [cart, setCart] = useRecoilState(cartState);
   const addToCartNotification = useSetRecoilState(addedToCartState);
   const navigate = useNavigate();
+  const timeId = useRef<ReturnType<typeof setTimeout> | null>(null);
   const handleAddToCart = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
+    let isMoreThanFive = false;
+    addToCartNotification(true);
+    if (timeId.current) {
+      clearInterval(timeId.current);
+    }
+    timeId.current = setTimeout(() => {
+      addToCartNotification(false);
+    }, 1500);
+    const isThere = cart.find((eachItem) => {
+      if (eachItem.productId == productId) {
+        if (eachItem.quantity < 5) {
+          return true;
+        } else {
+          isMoreThanFive = true;
+        }
+      }
+    });
+    if (isMoreThanFive) {
+      return alert("Not more than 5 items");
+    }
+    if (isThere) {
+      setCart((currentCart) => {
+        return currentCart.map((eachItem) => {
+          if (eachItem.productId == productId) {
+            return {
+              ...eachItem,
+              quantity: eachItem.quantity + 1,
+            };
+          }
+          return eachItem;
+        });
+      });
+    } else {
+      setCart((cart) =>
+        cart.concat({
+          productId,
+          productName,
+          productImage: productImages[0],
+          productAcutalPrice,
+          productDiscountedPrice,
+          quantity: 1,
+        })
+      );
+    }
   };
 
   return (
@@ -76,7 +123,58 @@ export const FilterProduct = ({
   productDiscountedPrice,
   productId,
 }: ProductSemiDetails) => {
+  const [cart, setCart] = useRecoilState(cartState);
+  const addToCartNotification = useSetRecoilState(addedToCartState);
   const navigate = useNavigate();
+  const timeId = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const handleAddToCart = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    let isMoreThanFive = false;
+    addToCartNotification(true);
+    if (timeId.current) {
+      clearInterval(timeId.current);
+    }
+    timeId.current = setTimeout(() => {
+      addToCartNotification(false);
+    }, 1500);
+    const isThere = cart.find((eachItem) => {
+      if (eachItem.productId == productId) {
+        if (eachItem.quantity < 5) {
+          return true;
+        } else {
+          isMoreThanFive = true;
+        }
+      }
+    });
+    if (isMoreThanFive) {
+      return alert("Not more than 5 items");
+    }
+    if (isThere) {
+      setCart((currentCart) => {
+        return currentCart.map((eachItem) => {
+          if (eachItem.productId == productId) {
+            return {
+              ...eachItem,
+              quantity: eachItem.quantity + 1,
+            };
+          }
+          return eachItem;
+        });
+      });
+    } else {
+      setCart((cart) =>
+        cart.concat({
+          productId,
+          productName,
+          productImage: productImages[0],
+          productAcutalPrice,
+          productDiscountedPrice,
+          quantity: 1,
+        })
+      );
+    }
+  };
+
   return (
     <div
       className="h-full snap-center sm:w-40 md:w-58 mx-auto shrink-0 flex justify-center flex-col gap-2"
@@ -113,9 +211,7 @@ export const FilterProduct = ({
       </div>
       <button
         className="bg-black border text-white rounded-md hover:bg-transparent hover:border border-black hover:text-black transition-all duration-300 px-5 py-2 font-toreadore"
-        onClick={(e) => {
-          e.stopPropagation();
-        }}
+        onClick={handleAddToCart}
       >
         Add to cart
       </button>

@@ -54,7 +54,10 @@ const Navbar = () => {
         <div className="h-10 w-10" onClick={() => navigate("/")}>
           <img src="/logo1.svg" className="w-full h-full" />
         </div>
-        <div className="flex gap-2" onClick={() => navigate("/cart")}>
+        <div
+          className="flex cursor-pointer gap-2"
+          onClick={() => navigate("/cart")}
+        >
           <div className="bg-black text-white font-morganite tracking-[2px] text-xl text-center w-8 rounded-sm flex items-center justify-center">
             {totalProductNum > 99 ? "99+" : totalProductNum}
           </div>

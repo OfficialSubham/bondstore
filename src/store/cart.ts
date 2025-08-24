@@ -17,7 +17,7 @@ export const totalPrice = selector({
     const cart = get(cartState);
     let total = 0;
     cart.forEach((item) => {
-      total += (item.productPrice / 100) * item.quantity;
+      total += item.productDiscountedPrice * item.quantity;
     });
     return total;
   },
@@ -27,11 +27,7 @@ export const totalProduct = selector({
   key: "totalProduct",
   get: ({ get }) => {
     const cart = get(cartState);
-    let total = 0;
-    cart.forEach((item) => {
-      total += item.quantity;
-    });
-    return total;
+    return cart.length;
   },
 });
 
