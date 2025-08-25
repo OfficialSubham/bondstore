@@ -37,14 +37,14 @@ function App() {
   return (
     <div className="relative flex flex-col w-full min-h-screen">
       <div className="mx-auto md:max-w-3xl fixed inset-0 h-full w-full pointer-events-none">
-        <div className="absolute inset-y-0 top-14 left-2 lg:left-0 w-px bg-black "></div>
-        <div className="absolute top-14 lg:right-0 inset-y-0 right-2 w-px bg-black"></div>
+        <div className="absolute inset-y-0 top-20 left-2 lg:left-0 w-px bg-black "></div>
+        <div className="absolute top-20 lg:right-0 inset-y-0 right-2 w-px bg-black"></div>
       </div>
       <Router>
         <Navbar />
         <Loading />
         <AddedToCart />
-        <div className="flex-1 h-full pt-14">
+        <div className="flex-1 h-full pt-20">
           <Container>
             <Routes>
               <Route path="/" element={<Home />} />

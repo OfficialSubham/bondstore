@@ -10,7 +10,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const totalProductNum = useRecoilValue(totalProduct);
   return (
-    <div className="w-full fixed z-20 bg-white h-14 border-b border-b-line/20">
+    <div className="w-full fixed z-20 bg-white h-20 border-b border-b-line/20">
       <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
 
       <div className="absolute h-px w-full bg-line/20"></div>
@@ -51,8 +51,12 @@ const Navbar = () => {
             className="bg-black h-0.5 w-5"
           ></div>
         </div>
-        <div className="h-10 w-10" onClick={() => navigate("/")}>
-          <img src="/logo1.svg" className="w-full h-full" />
+        <div
+          className="h-full w-20 flex flex-col items-center justify-center"
+          onClick={() => navigate("/")}
+        >
+          <img src="/logo1.svg" className="w-10 h-10" />
+          <span className="text-[10px] font-toreadore">Bond Store</span>
         </div>
         <div
           className="flex cursor-pointer gap-2"
