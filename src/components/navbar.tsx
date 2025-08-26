@@ -55,8 +55,8 @@ const Navbar = () => {
           className="h-full w-20 flex flex-col items-center justify-center"
           onClick={() => navigate("/")}
         >
-          <img src="/logo1.svg" className="w-10 h-10" />
-          <span className="text-[10px] font-toreadore">Bond Store</span>
+          <img src="/logo1.svg" className="w-6 h-6" />
+          <span className="text-[16px] font-toreadore">Bond Store</span>
         </div>
         <div
           className="flex cursor-pointer gap-2"

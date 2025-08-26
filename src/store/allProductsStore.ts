@@ -315,3 +315,21 @@ export const categoryProductSelector = selectorFamily({
       );
     },
 });
+
+export const oneProductPerCategorySelector = selector<ProductInter[]>({
+  key: "oneProductPerCategorySelector",
+  get: ({ get }) => {
+    const products = get(bulkProduct);
+    if (!products) return [];
+
+    const categoryMap = new Map<string, ProductInter>();
+
+    for (const product of products) {
+      if (!categoryMap.has(product.productCategory)) {
+        categoryMap.set(product.productCategory, product);
+      }
+    }
+
+    return Array.from(categoryMap.values());
+  },
+});
