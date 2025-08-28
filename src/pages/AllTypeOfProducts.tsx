@@ -17,7 +17,7 @@ const AllTypeOfProducts = () => {
               <div key={product.productId} className="h-90">
                 <FilterProduct
                   productId={product.productId}
-                  productImages={product.productImages}
+                  Images={product.Images}
                   productName={product.productName}
                   productAcutalPrice={product.productAcutalPrice}
                   productDiscountedPrice={product.productDiscountedPrice}

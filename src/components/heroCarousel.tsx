@@ -26,9 +26,9 @@ export default function HeroCarousel() {
         {eachProductImg.map((eachPro) => (
           <img
             key={eachPro.productName}
-            src={eachPro.productImages[0].imgUrl}
+            src={eachPro.Images[0].imgUrl}
             alt={`bag-${eachPro.productName}`}
-            className="w-full h-[400px] object-cover flex-shrink-0"
+            className="w-full h-[400px] object-contain flex-shrink-0"
             onClick={() => {
               navigate(`/product/${eachPro.productId}`);
             }}

@@ -41,7 +41,7 @@ const Category = ({
                       key={product.productId}
                       productName={product.productName}
                       productId={product.productId}
-                      productImages={product.productImages}
+                      Images={product.Images}
                       productAcutalPrice={product.productAcutalPrice}
                       productDiscountedPrice={product.productDiscountedPrice}
                     />
@@ -53,7 +53,7 @@ const Category = ({
                     key={product.productId}
                     productName={product.productName}
                     productId={product.productId}
-                    productImages={product.productImages}
+                    Images={product.Images}
                     productAcutalPrice={product.productAcutalPrice}
                     productDiscountedPrice={product.productDiscountedPrice}
                   />

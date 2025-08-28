@@ -49,6 +49,8 @@ const Cart = () => {
           <button
             className="bg-black  text-white py-2 px-4 rounded-md w-fit"
             onClick={() => {
+              if (cart.length == 0)
+                return alert("Please add some product in the cart");
               navigate("/checkout");
             }}
           >

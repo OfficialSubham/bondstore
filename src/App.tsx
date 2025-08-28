@@ -12,14 +12,15 @@ import AddedToCart from "./components/addToCart";
 import Checkout from "./pages/Checkout";
 import { useEffect } from "react";
 import { cartState } from "./store/cart";
-import { useSetRecoilState } from "recoil";
+
 import type { productPurchased } from "@codersubham/bond-store-types";
+import { useSetRecoilState } from "recoil";
 
 function App() {
   const setCartState = useSetRecoilState(cartState);
+
   useEffect(() => {
     const prevCartString = localStorage.getItem("yourCart");
-
     if (!prevCartString) {
       setCartState([]);
     } else {

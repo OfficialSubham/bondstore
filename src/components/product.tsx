@@ -1,4 +1,4 @@
-import type { ProductInter } from "@codersubham/bond-store-types";
+import { type ProductInter } from "@codersubham/bond-store-types";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { addedToCartState, cartState } from "../store/cart";
@@ -6,7 +6,7 @@ import { useEffect, useRef } from "react";
 
 type ProductSemiDetails = Pick<
   ProductInter,
-  | "productImages"
+  | "Images"
   | "productName"
   | "productAcutalPrice"
   | "productId"
@@ -14,7 +14,7 @@ type ProductSemiDetails = Pick<
 >;
 
 const Product = ({
-  productImages,
+  Images,
   productName,
   productAcutalPrice,
   productDiscountedPrice,
@@ -63,7 +63,7 @@ const Product = ({
         cart.concat({
           productId,
           productName,
-          productImage: productImages[0],
+          productImage: Images[0],
           productAcutalPrice,
           productDiscountedPrice,
           quantity: 1,
@@ -91,7 +91,7 @@ const Product = ({
           % off
         </div>
         <img
-          src={productImages[0].imgUrl}
+          src={Images[0].imgUrl}
           alt="this is alt"
           className="h-full w-full object-cover rounded-md"
         />
@@ -119,7 +119,7 @@ const Product = ({
 };
 
 export const FilterProduct = ({
-  productImages,
+  Images,
   productName,
   productAcutalPrice,
   productDiscountedPrice,
@@ -168,7 +168,7 @@ export const FilterProduct = ({
         cart.concat({
           productId,
           productName,
-          productImage: productImages[0],
+          productImage: Images[0],
           productAcutalPrice,
           productDiscountedPrice,
           quantity: 1,
@@ -198,7 +198,7 @@ export const FilterProduct = ({
           % off
         </div>
         <img
-          src={productImages[0].imgUrl}
+          src={Images[0].imgUrl}
           alt="this is alt"
           className="h-full w-full object-cover rounded-md"
         />

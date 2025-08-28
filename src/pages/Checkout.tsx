@@ -1,20 +1,25 @@
 import { UserSchema } from "@codersubham/bond-store-types";
 import { useState } from "react";
-import { useSetRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import { loadingState } from "../store/loadingState";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { cartState } from "../store/cart";
 
 const Checkout = () => {
+  const BACKENDURL = import.meta.env.VITE_BACKEND_URL;
   const navigate = useNavigate();
   const setLoading = useSetRecoilState(loadingState);
+  const [cart, setCart] = useRecoilState(cartState);
+
   const [userDetails, setUserDetails] = useState({
-    username: "",
-    userAddress: "",
-    userLandmark: "",
-    userState: "",
-    userPincode: "",
-    userContact: "",
-    userAltrContact: "",
+    customerName: "",
+    customerAddress: "",
+    customerLandmark: "",
+    customerState: "",
+    customerPincode: "",
+    customerNumber: "",
+    customerAltrContact: "",
   });
 
   const handleOnchange = (
@@ -29,13 +34,33 @@ const Checkout = () => {
   };
 
   const handleOrder = async () => {
-    const { success } = UserSchema.safeParse(userDetails);
+    const { success } = UserSchema.safeParse({
+      username: userDetails.customerName,
+      userAddress: userDetails.customerAddress,
+      userLandmark: userDetails.customerLandmark,
+      userContact: userDetails.customerNumber,
+      userPincode: userDetails.customerPincode,
+      userState: userDetails.customerState,
+      userAltrContact: userDetails.customerAltrContact,
+    });
     if (!success) return alert("Enter valid details");
     setLoading(true);
-    await new Promise((res) => setTimeout(res, 10000));
-    setLoading(false);
+    try {
+      const res = await axios.post(`${BACKENDURL}/order/createorder`, {
+        ...userDetails,
+        productPurchased: cart,
+      });
+      console.log(res);
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        alert(error.response?.data?.message); // your backend’s error
+      }
+    } finally {
+      setLoading(false);
+      localStorage.removeItem("yourCart");
+      setCart([]);
+    }
     alert("Order placed successfully");
-    localStorage.removeItem("yourCart");
     navigate("/");
   };
 
@@ -47,18 +72,18 @@ const Checkout = () => {
           <input
             type="text"
             className="w-full bg-slate-300/40 rounded-md h-10 px-2"
-            name="username"
+            name="customerName"
             onChange={handleOnchange}
-            value={userDetails.username}
+            value={userDetails.customerName}
           />
         </div>
         <div>
           <h1>Address : </h1>
           <textarea
             className="w-full bg-slate-300/40 rounded-md h-20 px-2"
-            name="userAddress"
+            name="customerAddress"
             onChange={handleOnchange}
-            value={userDetails.userAddress}
+            value={userDetails.customerAddress}
           />
         </div>
         <div>
@@ -66,9 +91,9 @@ const Checkout = () => {
           <input
             type="text"
             className="w-full bg-slate-300/40 rounded-md h-10 px-2"
-            name="userLandmark"
+            name="customerLandmark"
             onChange={handleOnchange}
-            value={userDetails.userLandmark}
+            value={userDetails.customerLandmark}
           />
         </div>
         <div>
@@ -76,9 +101,9 @@ const Checkout = () => {
           <input
             type="text"
             className="w-full bg-slate-300/40 rounded-md h-10 px-2"
-            name="userState"
+            name="customerState"
             onChange={handleOnchange}
-            value={userDetails.userState}
+            value={userDetails.customerState}
           />
         </div>
         <div>
@@ -86,9 +111,9 @@ const Checkout = () => {
           <input
             type="text"
             className="w-full bg-slate-300/40 rounded-md h-10 px-2"
-            name="userPincode"
+            name="customerPincode"
             onChange={handleOnchange}
-            value={userDetails.userPincode}
+            value={userDetails.customerPincode}
           />
         </div>
         <div>
@@ -96,9 +121,9 @@ const Checkout = () => {
           <input
             type="number"
             className="w-full bg-slate-300/40 rounded-md h-10 px-2"
-            name="userContact"
+            name="customerNumber"
             onChange={handleOnchange}
-            value={userDetails.userContact}
+            value={userDetails.customerNumber}
           />
         </div>
         <div>
@@ -106,9 +131,9 @@ const Checkout = () => {
           <input
             type="number"
             className="w-full bg-slate-300/40 rounded-md h-10 px-2"
-            name="userAltrContact"
+            name="customerAltrContact"
             onChange={handleOnchange}
-            value={userDetails.userAltrContact}
+            value={userDetails.customerAltrContact}
           />
         </div>
         <button
