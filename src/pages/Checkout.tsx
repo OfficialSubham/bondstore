@@ -52,9 +52,8 @@ const Checkout = () => {
       });
       console.log(res);
     } catch (error) {
-      if (axios.isAxiosError(error)) {
-        alert(error.response?.data?.message); // your backend’s error
-      }
+      console.log(error);
+      alert("Sorry for the inconvinience please try again later");
     } finally {
       setLoading(false);
       localStorage.removeItem("yourCart");

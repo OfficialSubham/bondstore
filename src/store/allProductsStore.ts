@@ -10,7 +10,6 @@ export const bulkProduct = atom<ProductInter[] | null>({
     get: async () => {
       try {
         const res = await axios.get(`${BACKEND_URL}/allproduct/bulk`);
-        console.log(res.data);
         return res.data.bulkProducts;
       } catch (error) {
         console.log(error);
