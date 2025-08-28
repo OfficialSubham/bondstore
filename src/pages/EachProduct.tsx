@@ -58,7 +58,7 @@ const EachProduct = () => {
         crt.concat({
           productId: Number(id),
           productName: currentProduct?.productName,
-          productImage: currentProduct?.productImages[0],
+          productImage: currentProduct?.Images[0],
           productAcutalPrice: currentProduct?.productAcutalPrice,
           productDiscountedPrice: currentProduct?.productDiscountedPrice,
           quantity: 1,
@@ -82,7 +82,7 @@ const EachProduct = () => {
   return (
     currentProduct && (
       <div className="flex flex-col gap-8 font-toreadore w-full">
-        <Carousel slides={currentProduct.productImages} />
+        <Carousel slides={currentProduct.Images} />
         <h1 className="leading-4">{currentProduct?.productName}</h1>
         <div>
           Category :{" "}
