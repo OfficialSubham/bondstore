@@ -16,7 +16,7 @@ export default function ReviewSection() {
           <FewReviews
             key={review.reviewId}
             name={review.name}
-            rating={review.rating}
+            rating={`${review.rating}`}
             review={review.review}
           />
         ))}

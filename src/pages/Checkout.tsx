@@ -46,11 +46,10 @@ const Checkout = () => {
     if (!success) return alert("Enter valid details");
     setLoading(true);
     try {
-      const res = await axios.post(`${BACKENDURL}/order/createorder`, {
+      await axios.post(`${BACKENDURL}/order/createorder`, {
         ...userDetails,
         productPurchased: cart,
       });
-      console.log(res);
     } catch (error) {
       console.log(error);
       alert("Sorry for the inconvinience please try again later");
