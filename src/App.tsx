@@ -15,6 +15,7 @@ import { cartState } from "./store/cart";
 
 import type { productPurchased } from "@codersubham/bond-store-types";
 import { useSetRecoilState } from "recoil";
+import { FacebookIcon, Instagram } from "lucide-react";
 
 function App() {
   const setCartState = useSetRecoilState(cartState);
@@ -67,6 +68,25 @@ function App() {
             <p className="text-gray-400 font-toreadore">
               © {new Date().getFullYear()} Bond Store. All rights reserved.
             </p>
+
+            <div>
+              <a
+                target="_blank"
+                href="https://www.instagram.com/bondstore_official"
+                className="cursor-pointer flex hover:underline"
+              >
+                <Instagram height={15} />
+                Instagram
+              </a>
+              <a
+                target="_blank"
+                href="https://www.facebook.com/share/1642eVqdPZ"
+                className="cursor-pointer hover:underline flex"
+              >
+                <FacebookIcon height={15} />
+                Facebook
+              </a>
+            </div>
 
             {/* Developer credit */}
             <p className="text-gray-400">
