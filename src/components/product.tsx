@@ -92,6 +92,7 @@ const Product = ({
         </div>
         <img
           src={Images[0].imgUrl}
+          loading="lazy"
           alt="this is alt"
           className="h-full w-full object-cover rounded-md"
         />
@@ -199,6 +200,7 @@ export const FilterProduct = ({
         </div>
         <img
           src={Images[0].imgUrl}
+          loading="lazy"
           alt="this is alt"
           className="h-full w-full object-cover rounded-md"
         />

@@ -25,6 +25,7 @@ export default function HeroCarousel() {
       >
         {eachProductImg.map((eachPro) => (
           <img
+            loading="lazy"
             key={eachPro.productName}
             src={eachPro.Images[0].imgUrl}
             alt={`bag-${eachPro.productName}`}

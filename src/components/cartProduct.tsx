@@ -47,6 +47,7 @@ const CartProduct = ({
         <img
           src={`${productImage.imgUrl}`}
           alt="img"
+          loading="lazy"
           className="w-full h-full rounded-md"
         />
       </div>

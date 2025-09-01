@@ -88,6 +88,7 @@ export default function Carousel({ slides }: { slides: Images[] }) {
               className="relative w-full h-full flex-shrink-0"
             >
               <img
+                loading="lazy"
                 src={slide.imgUrl}
                 alt="product image"
                 className="w-full h-full object-cover"
