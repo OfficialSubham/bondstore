@@ -38,12 +38,19 @@ const Cart = () => {
         </div>
         <div className="flex justify-between">
           <h1>Delivery Charges : </h1>
-          <h1>Rs. {total == 0 ? 0 : 100}</h1>
+          <div className="flex gap-2">
+            <h1
+              className={`${total == 0 ? "" : "line-through text-slate-600"}`}
+            >
+              Rs. {total == 0 ? 0 : 100}
+            </h1>
+            {total != 0 && <h2 className="">free</h2>}
+          </div>
         </div>
         <div className="h-px w-full bg-white"></div>
         <div className="flex justify-between">
           <h1>Total Cost : </h1>
-          <h1>Rs. {total == 0 ? total : total + 100}</h1>
+          <h1>Rs. {total}</h1>
         </div>
         <div className="w-full flex justify-center">
           <button
