@@ -3,11 +3,12 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.tsx";
 import { RecoilRoot } from "recoil";
+import { MainLoading } from "./components/loading.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <RecoilRoot>
-      <Suspense fallback={<div></div>}>
+      <Suspense fallback={<MainLoading />}>
         <App />
       </Suspense>
     </RecoilRoot>
