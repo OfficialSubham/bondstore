@@ -13,17 +13,14 @@ const Menu = ({
       link: "/",
     },
     {
-      title: "Men's Wallet",
-      link: "/products/menswallet",
+      title: "Imported Bags",
+      link: "/products/importedbags",
     },
     {
       title: "Leather Bags",
       link: "/products/leatherbags",
     },
-    {
-      title: "Imported Bags",
-      link: "/products/importedbags",
-    },
+
     {
       title: "Hand Clutch",
       link: "/products/handclutch",
@@ -31,6 +28,10 @@ const Menu = ({
     {
       title: "Men's Side Bag",
       link: "/products/mensidebag",
+    },
+    {
+      title: "Men's Wallet",
+      link: "/products/menswallet",
     },
     {
       title: "Explore Bags",

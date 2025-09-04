@@ -5,16 +5,12 @@ import ReviewSection from "../components/reviewSection";
 const Home = () => {
   const category = [
     {
-      categoryName: "Men's Wallet",
-      categoryType: "menswallet",
+      categoryName: "Imported Bags",
+      categoryType: "importedbags",
     },
     {
       categoryName: "Leather Bags",
       categoryType: "leatherbags",
-    },
-    {
-      categoryName: "Imported Bags",
-      categoryType: "importedbags",
     },
     {
       categoryName: "Hand Clutch",
@@ -23,6 +19,11 @@ const Home = () => {
     {
       categoryName: "Men's Side Bag",
       categoryType: "mensidebag",
+    },
+
+    {
+      categoryName: "Men's Wallet",
+      categoryType: "menswallet",
     },
     {
       categoryName: "Explore Bags",
