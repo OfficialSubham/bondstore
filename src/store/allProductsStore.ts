@@ -3,27 +3,6 @@ import axios from "axios";
 import { atom, selector } from "recoil";
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
-export const bulkProduct = atom<Record<string, ProductInter[]>>({
-  key: "bulkProduct",
-  default: selector({
-    key: "bulkProductSelector",
-    get: async () => {
-      try {
-        // const res = await axios.get(`${BACKEND_URL}/allproduct/bulk`);
-        const initialData = await axios.get(
-          `${BACKEND_URL}/allproduct/giveinitial`
-        );
-        // console.log(initialData.data.productsByCategory);
-
-        return initialData.data.productsByCategory;
-      } catch (error) {
-        console.log(error);
-      }
-      return [];
-    },
-  }),
-});
-
 // export const categoryProductSelector = selectorFamily({
 //   key: "categoryProducts",
 //   get:
@@ -45,7 +24,7 @@ export const bulkProduct = atom<Record<string, ProductInter[]>>({
 export const oneProductPerCategorySelector = selector<ProductInter[]>({
   key: "oneProductPerCategorySelector",
   get: ({ get }) => {
-    const products = get(bulkProduct);
+    const products = get(categoryProductsState);
     const flatProduct = Object.values(products).flat();
     if (!products) return [];
 

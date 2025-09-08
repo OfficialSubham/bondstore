@@ -5,7 +5,7 @@ import type {
   productPurchased,
 } from "@codersubham/bond-store-types";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
-import { bulkProduct } from "../store/allProductsStore";
+import { categoryProductsState } from "../store/allProductsStore";
 import { useParams } from "react-router-dom";
 import { addedToCartState, cartState } from "../store/cart";
 
@@ -16,7 +16,7 @@ const EachProduct = () => {
   const [currentProduct, setCurrentProduct] = useState<
     ProductInter | undefined
   >();
-  const productValue = useRecoilValue(bulkProduct);
+  const productValue = useRecoilValue(categoryProductsState);
 
   const timeId = useRef<ReturnType<typeof setTimeout> | null>(null);
   const handleAddToCart = (e: React.MouseEvent<HTMLButtonElement>) => {
