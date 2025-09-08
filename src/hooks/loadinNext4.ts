@@ -17,7 +17,7 @@ export function useLoadMoreProducts() {
     const res = await axios.get(
       `${BACKEND_URL}/allproduct/category/${category}?page=${nextPage}`
     );
-    console.log("Check", res.data.products);
+    // console.log("Check", res.data.products);
     if (!res.data.products || res.data.products.length === 0) {
       alert("No more products");
       return;
