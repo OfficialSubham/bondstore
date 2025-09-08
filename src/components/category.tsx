@@ -28,7 +28,7 @@ const Category = ({
       </div>
       {products && (
         <div className="flex-1 snap-x py-4 flex gap-4 overflow-x-scroll bg-slate-300/18 w-full items-center">
-          {products[categoryType].map((product) => {
+          {products[categoryType].slice(0, 4).map((product) => {
             return (
               <Product
                 key={product.productId + Math.random()}

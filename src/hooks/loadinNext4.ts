@@ -13,7 +13,7 @@ export function useLoadMoreProducts() {
 
   return async (category: string) => {
     const nextPage = (pages[category] || 1) + 1;
-
+    console.log(nextPage);
     const res = await axios.get(
       `${BACKEND_URL}/allproduct/category/${category}?page=${nextPage}`
     );
@@ -23,10 +23,15 @@ export function useLoadMoreProducts() {
       return;
     }
 
-    setProducts((prev) => ({
-      ...prev,
-      [category]: [...(prev[category] || []), ...res.data.products],
-    }));
+    setProducts((prev) => {
+      const existing = prev[category] || [];
+      const merged = [...existing, ...res.data.products];
+      const unique = merged.filter(
+        (item, index, self) =>
+          index === self.findIndex((p) => p.productId === item.productId)
+      );
+      return { ...prev, [category]: unique };
+    });
 
     setPages((prev) => ({ ...prev, [category]: nextPage }));
   };
