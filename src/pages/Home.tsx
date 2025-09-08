@@ -25,11 +25,6 @@ const Home = () => {
       categoryName: "Men's Wallet",
       categoryType: "menswallet",
     },
-    {
-      categoryName: "Explore Bags",
-      categoryType: "explorebags",
-      exploreType: "Explore All",
-    },
   ];
 
   return (
@@ -41,7 +36,6 @@ const Home = () => {
             key={cat.categoryName}
             categoryName={cat.categoryName}
             categoryType={cat.categoryType}
-            exploreType={cat.exploreType}
           />
         );
       })}

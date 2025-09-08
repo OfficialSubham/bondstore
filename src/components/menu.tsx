@@ -34,10 +34,6 @@ const Menu = ({
       link: "/products/menswallet",
     },
     {
-      title: "Explore Bags",
-      link: "/products/explorebags",
-    },
-    {
       title: "Submit a Review",
       link: "submitreview",
     },

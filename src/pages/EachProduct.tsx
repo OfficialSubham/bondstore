@@ -68,8 +68,12 @@ const EachProduct = () => {
   };
 
   useEffect(() => {
+    if (!id || !productValue) return;
+
     const productId = Number(id);
-    const product = productValue?.find((pro) => {
+    const allProducts = Object.values(productValue).flat();
+
+    const product = allProducts?.find((pro) => {
       if (pro.productId == productId) return pro;
     });
     setCurrentProduct(product);
