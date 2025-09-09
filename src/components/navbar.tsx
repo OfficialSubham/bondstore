@@ -6,7 +6,6 @@ import { useRecoilValue } from "recoil";
 import { totalProduct } from "../store/cart";
 
 const Navbar = () => {
-  const WP_NUMBER = import.meta.env.VITE_WP_NUMBER;
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
   const totalProductNum = useRecoilValue(totalProduct);
@@ -52,8 +51,8 @@ const Navbar = () => {
             className="bg-black h-0.5 w-5"
           ></div>
         </div>
-        <div className="h-12 absolute left-12 p-3 lg:left-50 xl:left-[400px] w-12">
-          <a href={`https://wa.me/${WP_NUMBER}`} target="_blank">
+        <div className="h-12 absolute left-12 p-3 lg:left-50 xl:left-[400px] 2xl:left-[40%] w-12">
+          <a href={`https://wa.me/message/R5J62TY73JR4M1`} target="_blank">
             <img
               src="./whatsapp.png"
               alt="whatsapp logo"
@@ -67,6 +66,15 @@ const Navbar = () => {
         >
           <img src="/logo1.svg" className="w-6 h-6" />
           <span className="text-[16px] font-toreadore">Bond Store</span>
+        </div>
+        <div className="h-12 absolute right-18 p-3 lg:right-50 xl:right-[400px] 2xl:right-[40%] w-12">
+          <a href={`https://www.youtube.com/@Bondstore-nh4ie`} target="_blank">
+            <img
+              src="./youtube.png"
+              alt="whatsapp logo"
+              className="h-full w-full object-contain"
+            />
+          </a>
         </div>
         <div
           className="flex cursor-pointer gap-2"
