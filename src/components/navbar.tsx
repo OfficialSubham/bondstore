@@ -6,6 +6,7 @@ import { useRecoilValue } from "recoil";
 import { totalProduct } from "../store/cart";
 
 const Navbar = () => {
+  const WP_NUMBER = import.meta.env.VITE_WP_NUMBER;
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
   const totalProductNum = useRecoilValue(totalProduct);
@@ -50,6 +51,15 @@ const Navbar = () => {
             }}
             className="bg-black h-0.5 w-5"
           ></div>
+        </div>
+        <div className="h-12 absolute left-12 p-3 lg:left-50 xl:left-[400px] w-12">
+          <a href={`https://wa.me/${WP_NUMBER}`} target="_blank">
+            <img
+              src="./whatsapp.png"
+              alt="whatsapp logo"
+              className="h-full w-full object-contain"
+            />
+          </a>
         </div>
         <div
           className="h-full w-20 flex flex-col items-center justify-center"
