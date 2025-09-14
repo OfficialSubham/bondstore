@@ -1,12 +1,14 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSetRecoilState } from "recoil";
+import { loadingState } from "../store/loadingState";
 
 const SubmitAReview = () => {
   const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
   const navigate = useNavigate();
-
+  const setLoading = useSetRecoilState(loadingState);
   const rating = [1, 2, 3, 4, 5];
   const [currentRating, setCurrentRate] = useState(0);
   const [review, setReview] = useState({
@@ -26,15 +28,24 @@ const SubmitAReview = () => {
   };
 
   const handleSubmitReview = async () => {
-    const res = await axios.post(`${BACKEND_URL}/review/createReview`, {
-      name: review.name,
-      rating: currentRating,
-      review: review.review,
-    });
-    if (res.status != 200)
-      return alert("Sorry there is a problem please try again later");
-    alert("Review uploaded successfully");
-    navigate("/");
+    try {
+      setLoading(true);
+      const res = await axios.post(`${BACKEND_URL}/review/createReview`, {
+        name: review.name,
+        rating: currentRating,
+        review: review.review,
+      });
+      if (res.status != 200)
+        return alert("Sorry there is a problem please try again later");
+      setLoading(false);
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    } finally {
+      alert("Review uploaded successfully");
+      navigate("/");
+      setLoading(false);
+    }
   };
 
   return (
