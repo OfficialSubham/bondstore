@@ -54,7 +54,7 @@ const Navbar = () => {
         <div className="h-12 absolute left-12 p-3 lg:left-50 xl:left-[400px] 2xl:left-[40%] w-12">
           <a href={`https://wa.me/message/R5J62TY73JR4M1`} target="_blank">
             <img
-              src="./whatsapp.png"
+              src="/whatsapp.png"
               alt="whatsapp logo"
               className="h-full w-full object-contain"
             />
@@ -70,7 +70,7 @@ const Navbar = () => {
         <div className="h-12 absolute right-18 p-3 lg:right-50 xl:right-[400px] 2xl:right-[40%] w-12">
           <a href={`https://www.youtube.com/@Bondstore-nh4ie`} target="_blank">
             <img
-              src="./youtube.png"
+              src="/youtube.png"
               alt="whatsapp logo"
               className="h-full w-full object-contain"
             />
